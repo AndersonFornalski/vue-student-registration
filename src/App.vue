@@ -57,8 +57,8 @@
     data: () => ({ 
       drawer: null,
       items: [
-          { title: 'Students Register', icon: 'mdi-account-group', to: '/register' },
-          { title: 'Students List', icon: 'mdi-list', to: '/students' }
+          { title: 'Cadastro De Alunos', icon: 'mdi-account-group', to: '/registro' },
+          { title: 'Lista De Alunos', icon: 'mdi-clipboard-list-outline', to: '/alunos' }
         ],
      }),
   }

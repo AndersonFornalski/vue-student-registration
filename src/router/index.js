@@ -7,8 +7,8 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', name: 'List', component: ListStudent },
-  { path: '/students', name: 'ListStudent', component: ListStudent },
-  { path: '/register', name: 'RegisterStudent', component: RegisterStudent }
+  { path: '/alunos', name: 'ListStudent', component: ListStudent },
+  { path: '/registro', name: 'RegisterStudent', component: RegisterStudent }
 ]
 const router = new VueRouter({
   routes

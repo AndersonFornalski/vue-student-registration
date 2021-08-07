@@ -6,7 +6,7 @@
        max-width="1200" 
        elevation="0">
 
-    <router-link to="/register" style="text-decoration: none">
+    <router-link to="/registro" style="text-decoration: none">
         <v-btn           
           class="mx-10" 
           fab dark color="#E040FB">
@@ -36,6 +36,7 @@
                           class="deep-purple" 
                        dark small fab  
                        @click="formEdit(
+                                    students.id,
                                     students.name, 
                                     students.email )">
                                   <v-icon>mdi-pencil</v-icon>
@@ -110,7 +111,7 @@
          dialog: false,
          operation: '',            
             students:{
-                id: null,
+                id:null,
                 name:'',
                 email:''
             },     
@@ -156,7 +157,8 @@
               this.dialog=false;                        
             }, 
        
-        formEdit(name, email){              
+        formEdit(id, name, email){   
+              this.students.id = id;   
               this.students.name = name;                            
               this.students.email = email;                            
               this.dialog = true;                            

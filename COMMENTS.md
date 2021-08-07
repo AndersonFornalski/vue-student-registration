@@ -30,5 +30,9 @@ Para mensagens de erro e de confirmacao
 
 ### CRIANDO VALIDACOES NOS INPUTS DE TEXTO
 
+### VALIDACAO DO RA
+```
+Identificando erro de duplicidade do RA do Aluno ja existente no database e trazendo mensagem customizada para usuario final, utilizando o Swertalert2.
+```
 
 

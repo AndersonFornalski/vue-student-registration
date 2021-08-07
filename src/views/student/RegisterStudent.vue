@@ -2,7 +2,8 @@
 
  <v-card class="pa-10">
         <v-card-title class="purple darken-3 white--text">CADASTRO DE ALUNO</v-card-title>    
-          <v-card-text>            
+          <v-card-text> 
+            
             <v-form v-model="valid">             
               <v-container>
                 <v-row>
@@ -14,10 +15,12 @@
                           label="RA"
                           :rules="[v => !!v || 'RA obrigatorio',                                   
                                    v => v.length >= 5 || 'RA nao pode ser menor que 5 ']"
-                          required                          
+                          required  
+                                                    
                           >
                           {{ student.ra }}
-                   </v-text-field>                   
+                   </v-text-field> 
+   
                   </v-col>
 
                   <v-col cols="12" md="4">
@@ -89,7 +92,7 @@
               name:'',
               email:'',
               cpf:''
-            },  
+            },
           }
         },
     
@@ -104,9 +107,18 @@
             };                
           axios.post( Api, parameter)
           .then(response =>{
+            Swal.fire('Aluno Cadastrado!', '', 'success')             
             this.clear();
-          });     
-             Swal.fire('Student Save!', '', 'success')
+          })
+          .catch(error => {
+            if(error){
+              Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'RA ja existe nao pode salvar, por favor tente outro RA!' 
+                  }) 
+            }
+          });
           },
 
       clear(){
