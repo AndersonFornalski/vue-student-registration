@@ -1,4 +1,4 @@
-# student-registration
+# Student Registration
 
 ## Project setup
 ```
@@ -15,5 +15,4 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+###1 INICIALIZANDO O PROJETO
