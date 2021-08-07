@@ -24,6 +24,11 @@ Testando as funcoes
 ```
 Para mensagens de erro e de confirmacao
 ```
-### 
+### CRIANDO FUNCAO CREATE EM NOVA ROTA COM FORM TEXT-FIELD
+
+### INSTALANDO v-mask PARA MASCARAS NO FORM
+
+### CRIANDO VALIDACOES NOS INPUTS DE TEXTO
+
 
 

@@ -1,12 +1,12 @@
 <template>
- <!-- Button Create -->                
+
    <v-card 
        class="mx-auto mt-5" 
        color="transparent" 
        max-width="1200" 
        elevation="0">
 
-    <router-link :to="{ name: 'register' }" style="text-decoration: none">
+    <router-link to="/register" style="text-decoration: none">
         <v-btn           
           class="mx-10" 
           fab dark color="#E040FB">
@@ -14,7 +14,6 @@
         </v-btn>
     </router-link>       
 
-        <!-- Table to Students List -->
         <v-simple-table class="mt-5 pa-10" height="400px">
           <template v-slot:default>
               <thead>

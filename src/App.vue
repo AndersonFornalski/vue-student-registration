@@ -1,15 +1,15 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire" >
     <v-navigation-drawer
       v-model="drawer"
       app>
 
-      <v-list-item>
+      <v-list-item class="purple darken-3 white--text">
         <v-list-item-content>
           <v-list-item-title class="text-h6">
             ALUNOS
           </v-list-item-title>
-          <v-list-item-subtitle>
+          <v-list-item-subtitle class="white--text">
             Painel De Controle
           </v-list-item-subtitle>
         </v-list-item-content>
