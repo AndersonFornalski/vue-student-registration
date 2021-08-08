@@ -1,5 +1,5 @@
 <template>
-
+<div>
    <v-card 
        class="mx-auto mt-5" 
        color="transparent" 
@@ -12,9 +12,14 @@
           fab dark color="#E040FB">
               <v-icon dark>mdi-plus</v-icon>            
         </v-btn>
-    </router-link>       
-
-        <v-simple-table class="mt-5 pa-10" height="400px">
+    </router-link>   
+    
+      <div class="card text-center m-3">
+        <div class="card-footer ">
+        </div>
+    </div>
+            
+        <v-simple-table class="mt-5 pa-2" height="400px"  >
           <template v-slot:default>
               <thead>
                 <tr class="purple darken-3">
@@ -26,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                  <tr v-for="students in students" :key="students.id">
+                  <tr  v-for="students in pageOfItems"  :key="students.id">
                   <td>{{ students.ra }}</td>
                   <td>{{ students.name }}</td>
                   <td>{{ students.email }}</td>
@@ -51,9 +56,10 @@
 
                     </td>
                     </tr>
-                </tbody>
-     </template>
+                </tbody>                
+     </template>                 
  </v-simple-table>
+  <jw-pagination :pageSize=7 :items="students" @changePage="onChangePage"></jw-pagination>
 
  <!-- Component Dialog to Create and Edit --> 
       <v-dialog v-model="dialog" max-width="500">        
@@ -96,17 +102,22 @@
       </v-dialog>
 
         </v-card> 
+            
+         
+        </div>
 </template>
 
 <script>
     import axios from "axios";
     import Swal from 'sweetalert2';
     import { Api } from '../../config/api';
-
+   
   export default {  
-
+    
     data(){
       return {
+           pageOfItems: [],
+
          students:[],
          dialog: false,
          operation: '',            
@@ -123,6 +134,10 @@
       },
 
       methods:{
+
+        onChangePage(pageOfItems) {
+            this.pageOfItems = pageOfItems;
+        },
         
         listStudents(){
             axios.get( Api )

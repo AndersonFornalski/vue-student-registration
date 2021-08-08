@@ -58,7 +58,8 @@
       drawer: null,
       items: [
           { title: 'Cadastro De Alunos', icon: 'mdi-account-group', to: '/registro' },
-          { title: 'Lista De Alunos', icon: 'mdi-clipboard-list-outline', to: '/alunos' }
+          { title: 'Lista De Alunos', icon: 'mdi-clipboard-list-outline', to: '/alunos' },
+          { title: 'Lista', icon: 'mdi-clipboard-list-outline', to: '/list' }
         ],
      }),
   }

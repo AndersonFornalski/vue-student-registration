@@ -32,7 +32,9 @@ Para mensagens de erro e de confirmacao
 
 ### VALIDACAO DO RA
 ```
-Identificando erro de duplicidade do RA do Aluno ja existente no database e trazendo mensagem customizada para usuario final, utilizando o Swertalert2.
+Identificando erro de duplicidade do RA do Aluno ja existente no database e trazendo
+mensagem customizada para usuario final, utilizando o Swertalert2.
 ```
+### TESTANDO E CRIANDO PAGINACAO COM jw-pagination
 
 
