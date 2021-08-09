@@ -6,7 +6,7 @@ import RegisterStudent from '../views/student/RegisterStudent.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name: 'List', component: ListStudent },
+  { path: '/', redirect:"/alunos" },
   { path: '/alunos', name: 'ListStudent', component: ListStudent },
   { path: '/registro', name: 'RegisterStudent', component: RegisterStudent }
 ]
