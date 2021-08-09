@@ -13,13 +13,19 @@
               <v-icon dark>mdi-plus</v-icon>            
         </v-btn>
     </router-link>   
+
+    <v-card-title>
+      <v-spacer></v-spacer>
+        <v-text-field
+            v-model="searchQuery"
+            append-icon="mdi-magnify"
+            label="pesquise aqui pelo nome do aluno..."
+            single-line
+            hide-details
+        ></v-text-field>
+      </v-card-title>
     
-      <div class="card text-center m-3">
-        <div class="card-footer ">
-        </div>
-    </div>
-            
-        <v-simple-table class="mt-5 pa-2" height="400px"  >
+        <v-simple-table class="mt-5 pa-2" height="400px" >
           <template v-slot:default>
               <thead>
                 <tr class="purple darken-3">
@@ -31,7 +37,7 @@
                 </tr>
               </thead>
               <tbody>
-                  <tr  v-for="students in pageOfItems"  :key="students.id">
+                  <tr  v-for="students in resultQuery " :key="students.id" >
                   <td>{{ students.ra }}</td>
                   <td>{{ students.name }}</td>
                   <td>{{ students.email }}</td>
@@ -59,7 +65,15 @@
                 </tbody>                
      </template>                 
  </v-simple-table>
-  <jw-pagination :pageSize=7 :items="students" @changePage="onChangePage"></jw-pagination>
+    <div class="card text-center m-3">
+        <jw-pagination 
+                :pageSize=7 
+                :items="students" 
+                @changePage="onChangePage" 
+                :styles="customStyles"
+                :labels="customLabels"
+                 ></jw-pagination>
+    </div>
 
  <!-- Component Dialog to Create and Edit --> 
       <v-dialog v-model="dialog" max-width="500">        
@@ -100,23 +114,44 @@
        
         </v-card>
       </v-dialog>
-
-        </v-card> 
-            
+        </v-card>          
          
         </div>
 </template>
 
 <script>
+    const customStyles = {
+        a: {
+            color: 'white',
+            backgroundColor: '#6a1b9a',
+            borderRadius:'15px 0 15px 0',
+            marginRight:'5px',
+            fontSize:'0.9rem',
+            fontWeight:'bold'
+            
+        },
+         
+    };
+    const customLabels = {
+            first: '<<',
+            last: '>>',
+            previous: '<',
+            next: '>'
+        };
+
+
     import axios from "axios";
     import Swal from 'sweetalert2';
     import { Api } from '../../config/api';
    
-  export default {  
-    
+  export default {      
     data(){
       return {
-           pageOfItems: [],
+         search: '',
+         searchQuery: null,
+         pageOfItems: [],
+         customStyles,
+         customLabels,
 
          students:[],
          dialog: false,
@@ -128,7 +163,28 @@
             },     
       }
     },
-    
+/**
+ * 
+    computed:{
+        filteredStudents: function(){
+          return this.students.filter((blog) => {
+            return blog.name.match(this.search);
+           })
+        }
+    },
+ * ****/
+      computed:{
+        resultQuery(){
+            if(this.searchQuery){
+            return this.students.filter((item)=>{
+              return this.searchQuery.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v));
+            })
+            }else{
+              return this.students;
+            }
+          }
+      },
+  
     created(){
        this.listStudents();    
       },

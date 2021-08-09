@@ -37,4 +37,6 @@ mensagem customizada para usuario final, utilizando o Swertalert2.
 ```
 ### TESTANDO E CRIANDO PAGINACAO COM jw-pagination
 
+### CRIANDO BOTAO DE PESQUISA NA TABELA
+
 
